@@ -1,0 +1,2 @@
+execute as @e[type=chicken,tag=better_chicken] run execute as @s store result score @s inlove run data get entity @s InLove
+execute as @e[type=chicken,tag=better_chicken] run execute if predicate inlove run say <3
