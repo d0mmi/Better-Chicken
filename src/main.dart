@@ -1,5 +1,6 @@
 import 'package:objd/core.dart';
 import './manager/BreedingManager.dart';
+import './manager/DropManager.dart';
 
 void main(){
 	createProject(
@@ -21,7 +22,8 @@ class MainWidget extends Widget {
 		main: File(
 			'main',
       child: For.of([
-        BreedingManager()
+        BreedingManager(),
+        DropManager()
       ])
 		),
     load: File(
