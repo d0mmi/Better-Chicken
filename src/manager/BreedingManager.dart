@@ -10,10 +10,14 @@ class BreedingManager extends Widget{
   generate(Context context) {
     return File.execute("breeding_manager",child: For.of([
       Scoreboard(lovescore),
-      Execute.as(chicken,children: [
+      Execute.asat(chicken,children: [
+        If(Condition.tag(Tag(lovescore,entity: Entity.Selected(),value: true)),Then: [
+          Say("<3"),
+          Tag(lovescore,entity: Entity.Selected(),value: false),
+        ]),
         Command("execute as @s store result score @s "+ lovescore + " run data get entity @s " + property),
         If(Condition.predicate("better_chicken:inlove"),Then: [
-          Say("<3")
+          Tag(lovescore,entity: Entity.Selected(),value: true)
         ])
       ])
     ]));

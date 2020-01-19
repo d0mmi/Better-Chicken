@@ -1,6 +1,7 @@
 import 'package:objd/core.dart';
 import './manager/BreedingManager.dart';
 import './manager/DropManager.dart';
+import 'chickens/ChickenBase.dart';
 
 void main(){
 	createProject(
@@ -17,6 +18,9 @@ class MainWidget extends Widget {
 
 	@override
 	Widget generate(Context context){
+
+    ChickenBase iron = new ChickenBase("Iron Chicken", [Item(ItemType.iron_ingot,count: 1)]);
+
     return Pack(
 		name: "better_chicken",
 		main: File(
