@@ -1,2 +1,0 @@
-function better_chicken:breeding_manager
-function better_chicken:drop_manager

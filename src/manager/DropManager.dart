@@ -22,7 +22,7 @@ class DropManager extends Widget{
       Execute.asat(chicken,children: [
         Command("execute as @s store result score @s "+ dropscore + " run data get entity @s " + property),
         If(Condition.predicate("better_chicken:chickendrop"),Then: [
-          Say("Drop"),
+          Log("Drop"),
           For.of(drops),
           Data.modify(Entity.Selected(),path: property,modify: DataModify.set(9800))
           //Data.modify(Entity.Selected(),path: property,modify: DataModify.set(60))

@@ -1,1 +1,0 @@
-execute as @e[type=chicken,tag=better_chicken] at @s run function better_chicken:objd/execute1

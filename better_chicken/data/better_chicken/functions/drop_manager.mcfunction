@@ -1,2 +1,0 @@
-execute as @e[type=chicken,tag=better_chicken] at @s run execute as @s store result score @s chickendrop run data get entity @s EggLayTime
-execute as @e[type=chicken,tag=better_chicken] at @s run execute if predicate better_chicken:chickendrop run function better_chicken:objd/if1
