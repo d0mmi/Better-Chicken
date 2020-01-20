@@ -16,7 +16,7 @@ Soul sand, Nether Quartz
 | Red       | White     | Pink       |
 | Blue      | Red       | Purple     |
 | Red       | Yellow    | Orange     |
-| Grey      | White     | Silver     |
+| Grey      | White     | Light Grey |
 | Blue      | Green     | Cyan       |
 | Black     | White     | Grey       |
 | Green     | White     | Lime       |
