@@ -1,4 +1,4 @@
-# Better-Chicken
+# Better-Chicken DataPack
  
 # Base Chicken
 
@@ -67,3 +67,11 @@ Soul sand, Nether Quartz
 | Emerald   | Green     | XP               |
 | Blue      | Water     | Prismarine Shard |
 | Water     | Emerald   | Prismarine       |
+
+# Planned Features
+
+- Natural spawning of Base-Chicken 
+- Chicken Stats
+- Auto Generated:
+    - Docu
+    - Advancements
