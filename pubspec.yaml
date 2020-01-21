@@ -1,3 +1,4 @@
 name: "better_chicken"
 dependencies:  
    objd:
+   path:
