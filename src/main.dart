@@ -3,6 +3,7 @@ import './manager/BreedingManager.dart';
 import './manager/DropManager.dart';
 import 'chickens/ChickenBase.dart';
 import 'chickens/breeding/BreedingRecipe.dart';
+import 'manager/ModelManager.dart';
 
 void main(){
 	createProject(
@@ -132,6 +133,7 @@ class MainWidget extends Widget {
       child: For.of([
         BreedingManager(),
         DropManager(),
+        ModelManager(),
         For.of(summonChicken)
       ])
 		),

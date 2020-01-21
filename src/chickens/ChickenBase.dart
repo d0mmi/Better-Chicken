@@ -31,7 +31,10 @@ class ChickenBase extends Widget{
   }
 
   Summon getSummon({bool baby = false}){
-    return (baby)? Summon(EntityType.chicken,tags: _tags,name: TextComponent(name),nbt: {"Age":-6000}) : Summon(EntityType.chicken,tags: _tags,name: TextComponent(name));
+    List<Summon> passengers = [
+      Summon(EntityType.armor_stand,invulnerable: true,tags: ["bc_stand"], nbt: {"Invisible":1,"NoBasePlate":1,"Small":1,"ArmorItems":[{},{},{},Item(ItemType.cookie,count: 1,model: 1).getMap()]})
+    ];
+    return (baby)? Summon(EntityType.chicken,tags: _tags,name: TextComponent(name),nbt: {"Age":-6000},passengers: passengers) : Summon(EntityType.chicken,tags: _tags,name: TextComponent(name),passengers: passengers);
     }
 
   Widget getDrops(){
