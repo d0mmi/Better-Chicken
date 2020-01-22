@@ -7,6 +7,7 @@ import 'chickens/ChickenBase.dart';
 import 'chickens/breeding/BreedingRecipe.dart';
 import 'manager/AdvancementManager.dart';
 import 'manager/ModelManager.dart';
+import 'manager/NaturalSpawningManager.dart';
 import 'utils/builder.dart';
 
 void main(){
@@ -144,6 +145,7 @@ class MainWidget extends Widget {
       child: For.of([
         BreedingManager(),
         DropManager(),
+        NaturalSpawningManager(),
         ModelManager(),
         AdvancementManager()
       ])

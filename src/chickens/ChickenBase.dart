@@ -2,12 +2,12 @@ import 'package:objd/core.dart';
 import '../utils/json_writer.dart';
 
 class ChickenSpawning{
+  final String name;
+  const ChickenSpawning(this.name);
 
-  const ChickenSpawning();
-
-  static const ChickenSpawning overworld = ChickenSpawning();
-  static const ChickenSpawning nether = ChickenSpawning();
-  static const ChickenSpawning none = ChickenSpawning();
+  static const ChickenSpawning overworld = ChickenSpawning("overworld");
+  static const ChickenSpawning nether = ChickenSpawning("nether");
+  static const ChickenSpawning none = ChickenSpawning("none");
 
 }
 
