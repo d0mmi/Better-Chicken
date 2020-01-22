@@ -10,6 +10,15 @@ class BreedingRecipe extends Widget{
   ChickenBase chickenResult;
   static List<BreedingRecipe> recipes;
 
+  static BreedingRecipe getParent(ChickenBase child){
+    for(var recipe in recipes){
+      if(recipe.chickenResult.name == child.name){
+        return recipe;
+      }
+    }
+    return null;
+  }
+
   BreedingRecipe(this.chicken1, this.chicken2, this.chickenResult){
     if(recipes == null){
       recipes = [this];

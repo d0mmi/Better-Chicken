@@ -27,8 +27,8 @@ class CustomAdvancement{
   bool show_toast;
   bool announce_to_chat;
   bool hidden;
-  Map<String,dynamic> criteria;
-  CustomAdvancement parent;
+  Map<dynamic,dynamic> criteria;
+  String parent;
 
   CustomAdvancement(this.name, this.desc,this.icon,this.criteria,{this.icon_nbt = null, this.frame = AdvancementFrame.task, this.show_toast = true, this.announce_to_chat = true, this.hidden = false, this.parent = null}){
     advancements.add(this);
@@ -57,7 +57,7 @@ class CustomAdvancement{
       json["icon"]["nbt"] = icon_nbt;
     }
     if(parent != null){
-      json["parent"] = namespace + ":"+parent.name;
+      json["parent"] = namespace + ":" + parent.toLowerCase().replaceAll(" ", "_");
     }
     return json;
   }

@@ -10,7 +10,7 @@ class AdvancementBuilder{
   AdvancementBuilder(this.root,this.advancements){
     advancements.forEach((advancement) => {
       if(advancement.parent == null){
-        advancement.parent = root
+        advancement.parent = "root"
       }
     });
   }
@@ -19,7 +19,7 @@ class AdvancementBuilder{
     String path = namespace+"/data/"+namespace+"/advancements";
     Directory dir = Directory(path);
     if(dir.existsSync()){
-      dir.deleteSync();
+      dir.deleteSync(recursive: true);
     }
     dir.createSync(recursive: true);
     File rootFile = File(path+"/root.json");
@@ -27,7 +27,7 @@ class AdvancementBuilder{
     rootFile.writeAsStringSync(root.toString());
     advancements.forEach((advancement) => {
       advancement.namespace = namespace,
-      File(path+"/"+advancement.name+".json").writeAsStringSync(advancement.toString())
+      File(path+"/"+advancement.name.toLowerCase().replaceAll(" ", "_")+".json").writeAsStringSync(advancement.toString())
     });
   }
 

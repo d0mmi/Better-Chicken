@@ -4,7 +4,6 @@
 .dart_tool/
 .packages
 build/
-better_chicken/data/better_chicken/functions/
 # If you're building an application, you may want to check-in your pubspec.lock
 pubspec.lock
 
@@ -23,4 +22,6 @@ doc/api/
 
 # IDE and building
 .vscode/
+better_chicken/data/better_chicken/advancements/
+better_chicken/data/better_chicken/functions/
 resources/assets/minecraft/models/item/

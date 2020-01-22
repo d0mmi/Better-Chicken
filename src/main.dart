@@ -5,12 +5,14 @@ import './manager/BreedingManager.dart';
 import './manager/DropManager.dart';
 import 'chickens/ChickenBase.dart';
 import 'chickens/breeding/BreedingRecipe.dart';
+import 'manager/AdvancementManager.dart';
 import 'manager/ModelManager.dart';
 import 'utils/builder.dart';
-import 'utils/copy_dir.dart';
 
 void main(){
+  print("PreBuild:");
   BuilderHelper.preBuild();
+  print("Build:");
 	createProject(
 		Project(
 			name:"better_chicken",
@@ -19,7 +21,10 @@ void main(){
       description: "{\"pack\": {\"pack_format\": 1, \"description\": \"Better Chicken Datapack by D0mmi\"}}"
 		)
 	);
-  BuilderHelper.postBuild();
+  Future.delayed(Duration(seconds: 3),()=>{
+    print("PostBuild:"),
+    BuilderHelper.postBuild()
+  });
 }
 
 class MainWidget extends Widget {
@@ -140,7 +145,7 @@ class MainWidget extends Widget {
         BreedingManager(),
         DropManager(),
         ModelManager(),
-        For.of(summonChicken)
+        AdvancementManager()
       ])
 		),
     load: File(
@@ -149,7 +154,8 @@ class MainWidget extends Widget {
         Tellraw(Entity.All(),show: [TextComponent("Better Chickens v0.1 by ",color: Color.Gold),TextComponent("D0mmi",color: Color.Aqua,clickEvent: TextClickEvent.open_url("https://github.com/d0mmi")),TextComponent(" Loaded!",color: Color.Gold)]),
         Tellraw(Entity.All(),show: [TextComponent("Submit Bugs or Suggestions ",color: Color.Gold),TextComponent("here!",color: Color.Aqua,clickEvent: TextClickEvent.open_url("https://github.com/d0mmi/Better-Chicken/issues/new"))]),
       ])
-    )
+    ),
+    files: summonChicken
 	);
   }
 }
