@@ -1,5 +1,7 @@
 import 'package:objd/core.dart';
 
+import '../utils/json_writer.dart';
+
 class ChickenBase extends Widget{
 
   String name;
@@ -7,10 +9,12 @@ class ChickenBase extends Widget{
   Entity _entity;
   List<String> _tags;
   bool natural;
+  String texture;
   static List<ChickenBase> chickens;
+  static int chickensModel = 1000;
   static String drop_score = "bc_drop";
 
-  ChickenBase(this.name, this.drops,{this.natural = false}){
+  ChickenBase(this.name, this.drops,{this.natural = false,this.texture = "coal_block"}){
     if(chickens == null){
       chickens = [this];
     }else{
@@ -50,6 +54,23 @@ class ChickenBase extends Widget{
     }
     
     return If(Condition.entity(Entity(type: EntityType.chicken, tags: [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"],selector: "s")),Then: summondrops);
+  }
+
+  createModelJson(){
+    var json = JsonWriter.readJson("src/chickens/example.json");
+    json["textures"] = {
+		"particle": "chicken/"+texture,
+		"texture": "chicken/"+texture
+	  };
+    JsonWriter.writeJson("resources/assets/minecraft/models/item/cookie/"+chickensModel.toString()+".json", json);
+
+    var cookie = JsonWriter.readJson("resources/assets/minecraft/models/item/cookie.json");
+    List<dynamic> overrides = cookie["overrides"];
+    overrides.add({ "predicate": { "custom_model_data": chickensModel}, "model": "item/cookie/"+chickensModel.toString() });
+    cookie["overrides"] = overrides;
+    JsonWriter.writeJson("resources/assets/minecraft/models/item/cookie.json", cookie);
+
+    chickensModel++;
   }
 
 }

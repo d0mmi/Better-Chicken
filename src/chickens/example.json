@@ -1,8 +1,8 @@
 {
 	"__comment": "Designed by _Dommi_ with Cubik Studio - https://cubik.studio",
 	"textures": {
-		"particle": "blocks/coal_block",
-		"texture": "blocks/coal_block"
+		"particle": "chicken/example",
+		"texture": "chicken/example"
 	},
 	"elements": [ 	 
 		{

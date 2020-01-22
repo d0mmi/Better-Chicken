@@ -6,13 +6,11 @@ import './manager/DropManager.dart';
 import 'chickens/ChickenBase.dart';
 import 'chickens/breeding/BreedingRecipe.dart';
 import 'manager/ModelManager.dart';
+import 'utils/builder.dart';
 import 'utils/copy_dir.dart';
 
 void main(){
-  var functions = Directory('./better_chicken/data/better_chicken/functions');
-  if(functions.existsSync()){
-    functions.deleteSync(recursive: true);
-  }
+  BuilderHelper.preBuild();
 	createProject(
 		Project(
 			name:"better_chicken",
@@ -21,17 +19,7 @@ void main(){
       description: "{\"pack\": {\"pack_format\": 1, \"description\": \"Better Chicken Datapack by D0mmi\"}}"
 		)
 	);
-  var datapack = Directory("C:/Users/DommiHD/AppData/Roaming/.minecraft/saves/SpacePack/datapacks/better_chicken");
-  if(datapack.existsSync()){
-    datapack.deleteSync(recursive: true);
-  }
-  copyDirectory(Directory("./better_chicken"), datapack);
-
-  var resource_pack  = Directory("C:/Users/DommiHD/AppData/Roaming/.minecraft/resourcepacks/resources");
-  if(resource_pack.existsSync()){
-    resource_pack.deleteSync(recursive: true);
-  }
-  copyDirectory(Directory("./resources"), resource_pack);
+  BuilderHelper.postBuild();
 }
 
 class MainWidget extends Widget {
