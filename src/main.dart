@@ -28,22 +28,22 @@ class MainWidget extends Widget {
 	Widget generate(Context context){
 
     //Overworld
-    ChickenBase log = ChickenBase("Log Chicken", [Item(ItemType.acacia_log,count: 1),Item(ItemType.birch_log,count: 1),Item(ItemType.jungle_log,count: 1),Item(ItemType.oak_log,count: 1),Item(ItemType.spruce_log,count: 1),Item(ItemType.dark_oak_log,count: 1)], natural: true);
-    ChickenBase sand = ChickenBase("Sand Chicken", [Item(ItemType.sand,count: 1)], natural: true);
-    ChickenBase flint = ChickenBase("Flint Chicken", [Item(ItemType.flint,count: 1)], natural: true);
-    ChickenBase bone = ChickenBase("Bone Chicken", [Item(ItemType.bone,count: 1)], natural: true);
+    ChickenBase log = ChickenBase("Log Chicken", [Item(ItemType.acacia_log,count: 1),Item(ItemType.birch_log,count: 1),Item(ItemType.jungle_log,count: 1),Item(ItemType.oak_log,count: 1),Item(ItemType.spruce_log,count: 1),Item(ItemType.dark_oak_log,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase sand = ChickenBase("Sand Chicken", [Item(ItemType.sand,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase flint = ChickenBase("Flint Chicken", [Item(ItemType.flint,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase bone = ChickenBase("Bone Chicken", [Item(ItemType.bone,count: 1)], spawning: ChickenSpawning.overworld);
     
     //Nether
-    ChickenBase soul = ChickenBase("Soul Chicken", [Item(ItemType.soul_sand,count: 1)], natural: true);
-    ChickenBase quartz = ChickenBase("Quartz Chicken", [Item(ItemType.quartz,count: 1)], natural: true);
+    ChickenBase soul = ChickenBase("Soul Chicken", [Item(ItemType.soul_sand,count: 1)], spawning: ChickenSpawning.nether);
+    ChickenBase quartz = ChickenBase("Quartz Chicken", [Item(ItemType.quartz,count: 1)], spawning: ChickenSpawning.nether);
 
     //Dye
-    ChickenBase red = ChickenBase("Red Chicken", [Item(ItemType.red_dye,count: 1)], natural: true);
-    ChickenBase white = ChickenBase("White Chicken", [Item(ItemType.white_dye,count: 1)], natural: true);
-    ChickenBase blue = ChickenBase("Blue Chicken", [Item(ItemType.blue_dye,count: 1)], natural: true);
-    ChickenBase yellow = ChickenBase("Yellow Chicken", [Item(ItemType.yellow_dye,count: 1)], natural: true);
-    ChickenBase green = ChickenBase("Green Chicken", [Item(ItemType.green_dye,count: 1)], natural: true);
-    ChickenBase black = ChickenBase("Black Chicken", [Item(ItemType.black_dye,count: 1)], natural: true);
+    ChickenBase red = ChickenBase("Red Chicken", [Item(ItemType.red_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase white = ChickenBase("White Chicken", [Item(ItemType.white_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase blue = ChickenBase("Blue Chicken", [Item(ItemType.blue_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase yellow = ChickenBase("Yellow Chicken", [Item(ItemType.yellow_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase green = ChickenBase("Green Chicken", [Item(ItemType.green_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase black = ChickenBase("Black Chicken", [Item(ItemType.black_dye,count: 1)], spawning: ChickenSpawning.overworld);
 
     ChickenBase pink = ChickenBase("Pink Chicken", [Item(ItemType.pink_dye,count: 1)]);
     ChickenBase purple = ChickenBase("Purple Chicken", [Item(ItemType.purple_dye,count: 1)]);

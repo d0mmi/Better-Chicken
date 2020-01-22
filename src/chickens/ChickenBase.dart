@@ -1,6 +1,15 @@
 import 'package:objd/core.dart';
-
 import '../utils/json_writer.dart';
+
+class ChickenSpawning{
+
+  const ChickenSpawning();
+
+  static const ChickenSpawning overworld = ChickenSpawning();
+  static const ChickenSpawning nether = ChickenSpawning();
+  static const ChickenSpawning none = ChickenSpawning();
+
+}
 
 class ChickenBase extends Widget{
 
@@ -8,18 +17,19 @@ class ChickenBase extends Widget{
   List<Item> drops = [];
   Entity _entity;
   List<String> _tags;
-  bool natural;
+  ChickenSpawning spawning;
   String texture;
   static List<ChickenBase> chickens;
   static int chickensModel = 1000;
   static String drop_score = "bc_drop";
 
-  ChickenBase(this.name, this.drops,{this.natural = false,this.texture = "coal_block"}){
+  ChickenBase(this.name, this.drops, {this.spawning = ChickenSpawning.none}){
     if(chickens == null){
       chickens = [this];
     }else{
       chickens.add(this);
     }
+    this.texture = name.replaceAll(" Chicken", "").replaceAll(" ", "_").toLowerCase();
     this.drops.add(Item(ItemType.feather,count: 1));
     _tags = [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"];
     _entity = Entity(type: EntityType.chicken, tags: _tags);
