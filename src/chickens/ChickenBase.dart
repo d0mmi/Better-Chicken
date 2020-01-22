@@ -19,8 +19,9 @@ class ChickenBase extends Widget{
   List<String> _tags;
   ChickenSpawning spawning;
   String texture;
+  int model;
   static List<ChickenBase> chickens;
-  static int chickensModel = 1000;
+  static int chickensModelCounter = 1000;
   static String drop_score = "bc_drop";
 
   ChickenBase(this.name, this.drops, {this.spawning = ChickenSpawning.none}){
@@ -33,6 +34,8 @@ class ChickenBase extends Widget{
     this.drops.add(Item(ItemType.feather,count: 1));
     _tags = [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"];
     _entity = Entity(type: EntityType.chicken, tags: _tags);
+    model = chickensModelCounter;
+    chickensModelCounter++;
   }
 
   @override
@@ -46,7 +49,7 @@ class ChickenBase extends Widget{
 
   Summon getSummon({bool baby = false}){
     List<Summon> passengers = [
-      Summon(EntityType.armor_stand,invulnerable: true,tags: ["bc_stand"], nbt: {"Invisible":1,"NoBasePlate":1,"Small":1,"ArmorItems":[{},{},{},Item(ItemType.cookie,count: 1,model: 1).getMap()]})
+      Summon(EntityType.armor_stand,invulnerable: true,tags: ["bc_stand"], nbt: {"Invisible":1,"NoBasePlate":1,"Small":1,"ArmorItems":[{},{},{},Item(ItemType.cookie,count: 1,model: model).getMap()]})
     ];
     return (baby)? Summon(EntityType.chicken,tags: _tags,name: TextComponent(name),nbt: {"Age":-6000},passengers: passengers) : Summon(EntityType.chicken,tags: _tags,name: TextComponent(name),passengers: passengers);
     }
@@ -72,15 +75,13 @@ class ChickenBase extends Widget{
 		"particle": "chicken/"+texture,
 		"texture": "chicken/"+texture
 	  };
-    JsonWriter.writeJson("resources/assets/minecraft/models/item/cookie/"+chickensModel.toString()+".json", json);
+    JsonWriter.writeJson("resources/assets/minecraft/models/item/cookie/"+model.toString()+".json", json);
 
     var cookie = JsonWriter.readJson("resources/assets/minecraft/models/item/cookie.json");
     List<dynamic> overrides = cookie["overrides"];
-    overrides.add({ "predicate": { "custom_model_data": chickensModel}, "model": "item/cookie/"+chickensModel.toString() });
+    overrides.add({ "predicate": { "custom_model_data": model}, "model": "item/cookie/"+model.toString() });
     cookie["overrides"] = overrides;
     JsonWriter.writeJson("resources/assets/minecraft/models/item/cookie.json", cookie);
-
-    chickensModel++;
   }
 
 }

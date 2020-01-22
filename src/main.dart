@@ -53,16 +53,16 @@ class MainWidget extends Widget {
     ChickenBase pink = ChickenBase("Pink Chicken", [Item(ItemType.pink_dye,count: 1)]);
     ChickenBase purple = ChickenBase("Purple Chicken", [Item(ItemType.purple_dye,count: 1)]);
     ChickenBase orange = ChickenBase("Orange Chicken", [Item(ItemType.orange_dye,count: 1)]);
-    ChickenBase light_grey = ChickenBase("Light Grey Chicken", [Item(ItemType.light_gray_dye,count: 1)]);
+    ChickenBase light_gray = ChickenBase("Light Gray Chicken", [Item(ItemType.light_gray_dye,count: 1)]);
     ChickenBase cyan = ChickenBase("Cyan Chicken", [Item(ItemType.cyan_dye,count: 1)]);
-    ChickenBase grey = ChickenBase("Grey Chicken", [Item(ItemType.gray_dye,count: 1)]);
+    ChickenBase gray = ChickenBase("Gray Chicken", [Item(ItemType.gray_dye,count: 1)]);
     ChickenBase lime = ChickenBase("Lime Chicken", [Item(ItemType.lime_dye,count: 1)]);
     ChickenBase light_blue = ChickenBase("Light Blue Chicken", [Item(ItemType.light_blue_dye,count: 1)]);
     ChickenBase magenta = ChickenBase("Magenta Chicken", [Item(ItemType.magenta_dye,count: 1)]);
     ChickenBase brown = ChickenBase("Brown Chicken", [Item(ItemType.brown_dye,count: 1)]);
 
     //Material Chicken
-    ChickenBase coal = ChickenBase("Coal Chicken", [Item(ItemType.charcoal,count: 1),Item(ItemType.feather,count: 1)]);
+    ChickenBase coal = ChickenBase("Coal Chicken", [Item(ItemType.coal,count: 1),Item(ItemType.feather,count: 1)]);
     ChickenBase iron = ChickenBase("Iron Chicken", [Item(ItemType.iron_ingot,count: 1),Item(ItemType.feather,count: 1)]);
     ChickenBase gunpowder = ChickenBase("Gunpowder Chicken", [Item(ItemType.gunpowder,count: 1),Item(ItemType.feather,count: 1)]);
     ChickenBase redstone = ChickenBase("Redstone Chicken", [Item(ItemType.redstone,count: 1),Item(ItemType.feather,count: 1)]);
@@ -93,9 +93,9 @@ class MainWidget extends Widget {
     BreedingRecipe(red,white,pink);
     BreedingRecipe(blue,red,purple);
     BreedingRecipe(red,yellow,orange);
-    BreedingRecipe(grey,white,light_grey);
+    BreedingRecipe(gray,white,light_gray);
     BreedingRecipe(blue,green,cyan);
-    BreedingRecipe(black,white,grey);
+    BreedingRecipe(black,white,gray);
     BreedingRecipe(green,white,lime);
     BreedingRecipe(white,blue,light_blue);
     BreedingRecipe(purple,pink,magenta);
