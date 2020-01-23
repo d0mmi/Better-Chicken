@@ -9,6 +9,7 @@ class BreedingRecipe extends Widget{
   ChickenBase chicken2;
   ChickenBase chickenResult;
   static List<BreedingRecipe> recipes;
+  static List<BreedingRecipe> selfRecipes;
 
   static BreedingRecipe getParent(ChickenBase child){
     for(var recipe in recipes){
@@ -24,6 +25,16 @@ class BreedingRecipe extends Widget{
       recipes = [this];
     }else{
       recipes.add(this);
+    }
+  }
+  BreedingRecipe.self(ChickenBase chicken ){
+    chicken1 = chicken;
+    chicken2 = chicken;
+    chickenResult = chicken;
+    if(selfRecipes == null){
+      selfRecipes = [this];
+    }else{
+      selfRecipes.add(this);
     }
   }
 

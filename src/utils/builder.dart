@@ -18,7 +18,7 @@ class BuilderHelper{
       functions.deleteSync(recursive: true);
     }
   }
-    static postBuild(){
+    static postBuild({bool copy = false}){
       
       var models  = Directory("resources/assets/minecraft/models/item/cookie/");
       if(models.existsSync()){
@@ -52,18 +52,19 @@ class BuilderHelper{
           }
         });
       AdvancementBuilder(root, advancements).build(namespace: "better_chicken");
+      if(copy){
+        var datapack = Directory("C:/Users/DommiHD/AppData/Roaming/.minecraft/saves/SpacePack/datapacks/better_chicken");
+        if(datapack.existsSync()){
+          datapack.deleteSync(recursive: true);
+        }
+        copyDirectory(Directory("./better_chicken"), datapack);
 
-      var datapack = Directory("C:/Users/DommiHD/AppData/Roaming/.minecraft/saves/SpacePack/datapacks/better_chicken");
-      if(datapack.existsSync()){
-        datapack.deleteSync(recursive: true);
+        var resource_pack  = Directory("C:/Users/DommiHD/AppData/Roaming/.minecraft/resourcepacks/resources");
+        if(resource_pack.existsSync()){
+          resource_pack.deleteSync(recursive: true);
+        }
+        copyDirectory(Directory("./resources"), resource_pack);
       }
-      copyDirectory(Directory("./better_chicken"), datapack);
-  
-      var resource_pack  = Directory("C:/Users/DommiHD/AppData/Roaming/.minecraft/resourcepacks/resources");
-      if(resource_pack.existsSync()){
-        resource_pack.deleteSync(recursive: true);
-      }
-      copyDirectory(Directory("./resources"), resource_pack);
   }
 
 }

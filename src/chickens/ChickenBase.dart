@@ -1,5 +1,6 @@
 import 'package:objd/core.dart';
 import '../utils/json_writer.dart';
+import 'breeding/BreedingRecipe.dart';
 
 class ChickenSpawning{
   final String name;
@@ -36,6 +37,7 @@ class ChickenBase extends Widget{
     _entity = Entity(type: EntityType.chicken, tags: _tags);
     model = chickensModelCounter;
     chickensModelCounter++;
+    BreedingRecipe.self(this);
   }
 
   @override

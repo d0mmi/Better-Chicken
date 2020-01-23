@@ -12,6 +12,7 @@ class BreedingManager extends Widget{
   generate(Context context) {
 
     List<Widget> onLove = [];
+    onLove.addAll(BreedingRecipe.selfRecipes);
     onLove.addAll(BreedingRecipe.recipes);
     onLove.addAll([
       Tag(lovescore,entity: Entity.Selected(),value: false),
