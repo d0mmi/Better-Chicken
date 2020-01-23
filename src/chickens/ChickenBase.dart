@@ -1,4 +1,5 @@
 import 'package:objd/core.dart';
+import '../manager/DropManager.dart';
 import '../utils/json_writer.dart';
 import 'breeding/BreedingRecipe.dart';
 
@@ -21,11 +22,12 @@ class ChickenBase extends Widget{
   ChickenSpawning spawning;
   String texture;
   int model;
+  int dropCooldown;
   static List<ChickenBase> chickens;
   static int chickensModelCounter = 1000;
   static String drop_score = "bc_drop";
 
-  ChickenBase(this.name, this.drops, {this.spawning = ChickenSpawning.none}){
+  ChickenBase(this.name, this.drops, {this.spawning = ChickenSpawning.none, this.dropCooldown = 9800}){
     if(chickens == null){
       chickens = [this];
     }else{
@@ -67,7 +69,7 @@ class ChickenBase extends Widget{
       ]));
       i++;
     }
-    
+    summondrops.add(Data.modify(Entity.Selected(),path: DropManager.property,modify: DataModify.set(dropCooldown)));
     return If(Condition.entity(Entity(type: EntityType.chicken, tags: [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"],selector: "s")),Then: summondrops);
   }
 

@@ -18,15 +18,30 @@ class AnalyseTool extends Tool {
     for (var chicken in ChickenBase.chickens) {
       List<Widget> drops = [];
       for (var item in chicken.drops) {
-        drops.add(Tellraw(Entity.Selected(),show: [TextComponent("  - "+item.count.toString()+"x "+item.type.toString())]));
+        drops.add(Tellraw(Entity.Selected(),show: [TextComponent("  - "+item.count.toString()+"x "+formatItemType(item.type))]));
       }
       cmds.add(If(Condition.entity(chicken.getEntity()),Then: [
         Tellraw(Entity.Selected(),show: [TextComponent("Chicken Type: " + chicken.name)]),
+        Tellraw(Entity.Selected(),show: [TextComponent("Drop Cooldown: " + formatCooldown(chicken.dropCooldown))]),
         Tellraw(Entity.Selected(),show: [TextComponent("Chicken Drops:")]),
         For.of(drops)
       ]));
     }
     return cmds;
   }
+  static String formatItemType(ItemType type){
+    String result = type.toString();
+    result = result.replaceAll("minecraft:", "");
+    result = result.replaceAll("_", " ");
 
+    return result;
+  }
+  static String formatCooldown(int ticks){
+    int m = ticks ~/ (20*60);
+    int s = ticks % (60);
+    String min = (m > 0)? (m.toString()+"m "):"";
+    String sec = (s > 0)? (s.toString()+"s "):"";
+
+    return min + sec +"("+ticks.toString()+" ticks)";
+  }
 }
