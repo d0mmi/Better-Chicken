@@ -49,14 +49,14 @@ class BreedingRecipe extends Widget{
       }
     });
     tags.add(BreedingManager.lovescore);
-    var near_chicken2 = chicken2.getEntity().copyWith(distance: Range(to: 3),tags: tags);
+    var near_chicken2 = chicken2.getEntity().copyWith(distance: Range(from: 0.5, to: 3),tags: tags);
     near_chicken2.selector = "e";
     var if_chicken1 = chicken1.getEntity();
     if_chicken1.selector = "s";
 
     return For.of([
-      If(Condition.entity(if_chicken1),Then: [
-        If(Condition.entity(near_chicken2),Then: [
+      If(Condition.entity(if_chicken1),then: [
+        If(Condition.entity(near_chicken2),then: [
           chickenResult.getSummon(baby: true),
           Data.modify(Entity.Selected(),path: BreedingManager.property, modify: DataModify.set(0)),
           Data.modify(near_chicken2.copyWith(limit: 1),path: BreedingManager.property, modify: DataModify.set(0))

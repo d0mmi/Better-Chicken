@@ -1,6 +1,7 @@
 import 'dart:io';
 
-import 'package:objd/basic/item.dart';
+
+import 'package:objd/basic/types/item.dart';
 
 import '../chickens/ChickenBase.dart';
 import '../chickens/breeding/BreedingRecipe.dart';
@@ -46,7 +47,7 @@ class BuilderHelper{
           advancements.add(CustomAdvancement(chicken.name,"Breed " + recipe.chicken1.name + " with " + recipe.chicken2.name,chicken.drops[0].type,criteria,parent: recipe.chicken1.name));
         }
       }
-      var root = RootAdvancement("Better Chicken","Install the Better Chicken Datapack",ItemType.feather,{
+      var root = RootAdvancement("Better Chicken","Install the Better Chicken Datapack",Items.feather,{
           "bc_install": {
             "trigger": "minecraft:tick"
           }

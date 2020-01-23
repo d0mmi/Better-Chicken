@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:objd/basic/item.dart';
-
 class AdvancementFrame{
   final String name;
   const AdvancementFrame(this.name);
@@ -21,7 +19,7 @@ class CustomAdvancement{
   String namespace = "default";
   String name;
   String desc;
-  ItemType icon;
+  dynamic icon;
   Map<String,dynamic> icon_nbt;
   AdvancementFrame frame;
   bool show_toast;

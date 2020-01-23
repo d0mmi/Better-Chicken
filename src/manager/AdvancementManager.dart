@@ -9,7 +9,7 @@ class AdvancementManager extends Widget{
 
     for(var chicken in ChickenBase.chickens){
       list.add(
-        If(Condition.entity(chicken.getEntity().copyWith(distance: Range(to: 3))),assignTag: Entity.Selected(),Then: [
+        If(Condition.entity(chicken.getEntity().copyWith(distance: Range(to: 3))),assignTag: Entity.Selected(),then: [
           Advancement.only(Entity.Selected(), "better_chicken:"+chicken.name.toLowerCase().replaceAll(" ", "_"))
         ])
       );

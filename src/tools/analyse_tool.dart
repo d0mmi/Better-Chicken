@@ -4,8 +4,8 @@ import 'tool.dart';
 
 class AnalyseTool extends Tool {
   AnalyseTool() : super("Analyse Tool", 1, [
-    Item(ItemType.book,count: 1),
-    Item(ItemType.diamond,count: 1)
+    Item(Items.book,count: 1),
+    Item(Items.diamond,count: 1)
   ], [
     Tellraw(Entity.Selected(),show: [TextComponent("-------------------")]),
     For.of(getChickenInfo()),
@@ -18,9 +18,9 @@ class AnalyseTool extends Tool {
     for (var chicken in ChickenBase.chickens) {
       List<Widget> drops = [];
       for (var item in chicken.drops) {
-        drops.add(Tellraw(Entity.Selected(),show: [TextComponent("  - "+item.count.toString()+"x "+formatItemType(item.type))]));
+        drops.add(Tellraw(Entity.Selected(),show: [TextComponent("  - "+item.count.toString()+"x "+formatItems(item.type))]));
       }
-      cmds.add(If(Condition.entity(chicken.getEntity()),Then: [
+      cmds.add(If(Condition.entity(chicken.getEntity()),then: [
         Tellraw(Entity.Selected(),show: [TextComponent("Chicken Type: " + chicken.name)]),
         Tellraw(Entity.Selected(),show: [TextComponent("Drop Cooldown: " + formatCooldown(chicken.dropCooldown))]),
         Tellraw(Entity.Selected(),show: [TextComponent("Chicken Drops:")]),
@@ -29,7 +29,7 @@ class AnalyseTool extends Tool {
     }
     return cmds;
   }
-  static String formatItemType(ItemType type){
+  static String formatItems(dynamic type){
     String result = type.toString();
     result = result.replaceAll("minecraft:", "");
     result = result.replaceAll("_", " ");

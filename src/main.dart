@@ -11,7 +11,7 @@ import 'manager/NaturalSpawningManager.dart';
 import 'tools/analyse_tool.dart';
 import 'utils/builder.dart';
 
-void main(){
+void main(args){
   print("PreBuild:");
   BuilderHelper.preBuild();
   print("Build:");
@@ -21,11 +21,11 @@ void main(){
 			target:"./",
 			generate: MainWidget(),
       description: "{\"pack\": {\"pack_format\": 1, \"description\": \"Better Chicken Datapack by D0mmi\"}}"
-		)
+		),args
 	);
   Future.delayed(Duration(seconds: 3),()=>{
     print("PostBuild:"),
-    BuilderHelper.postBuild()
+    BuilderHelper.postBuild(copy: true)
   });
 }
 
@@ -35,59 +35,59 @@ class MainWidget extends Widget {
 	Widget generate(Context context){
 
     //Overworld
-    ChickenBase log = ChickenBase("Log Chicken", [Item(ItemType.acacia_log,count: 1),Item(ItemType.birch_log,count: 1),Item(ItemType.jungle_log,count: 1),Item(ItemType.oak_log,count: 1),Item(ItemType.spruce_log,count: 1),Item(ItemType.dark_oak_log,count: 1)], spawning: ChickenSpawning.overworld);
-    ChickenBase sand = ChickenBase("Sand Chicken", [Item(ItemType.sand,count: 1)], spawning: ChickenSpawning.overworld);
-    ChickenBase flint = ChickenBase("Flint Chicken", [Item(ItemType.flint,count: 1)], spawning: ChickenSpawning.overworld);
-    ChickenBase bone = ChickenBase("Bone Chicken", [Item(ItemType.bone,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase log = ChickenBase("Log Chicken", [Item(Items.acacia_log,count: 1),Item(Items.birch_log,count: 1),Item(Items.jungle_log,count: 1),Item(Items.oak_log,count: 1),Item(Items.spruce_log,count: 1),Item(Items.dark_oak_log,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase sand = ChickenBase("Sand Chicken", [Item(Items.sand,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase flint = ChickenBase("Flint Chicken", [Item(Items.flint,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase bone = ChickenBase("Bone Chicken", [Item(Items.bone,count: 1)], spawning: ChickenSpawning.overworld);
     
     //Nether
-    ChickenBase soul = ChickenBase("Soul Chicken", [Item(ItemType.soul_sand,count: 1)], spawning: ChickenSpawning.nether);
-    ChickenBase quartz = ChickenBase("Quartz Chicken", [Item(ItemType.quartz,count: 1)], spawning: ChickenSpawning.nether);
+    ChickenBase soul = ChickenBase("Soul Chicken", [Item(Items.soul_sand,count: 1)], spawning: ChickenSpawning.nether);
+    ChickenBase quartz = ChickenBase("Quartz Chicken", [Item(Items.quartz,count: 1)], spawning: ChickenSpawning.nether);
 
     //Dye
-    ChickenBase red = ChickenBase("Red Chicken", [Item(ItemType.red_dye,count: 1)], spawning: ChickenSpawning.overworld);
-    ChickenBase white = ChickenBase("White Chicken", [Item(ItemType.white_dye,count: 1)], spawning: ChickenSpawning.overworld);
-    ChickenBase blue = ChickenBase("Blue Chicken", [Item(ItemType.blue_dye,count: 1)], spawning: ChickenSpawning.overworld);
-    ChickenBase yellow = ChickenBase("Yellow Chicken", [Item(ItemType.yellow_dye,count: 1)], spawning: ChickenSpawning.overworld);
-    ChickenBase green = ChickenBase("Green Chicken", [Item(ItemType.green_dye,count: 1)], spawning: ChickenSpawning.overworld);
-    ChickenBase black = ChickenBase("Black Chicken", [Item(ItemType.black_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase red = ChickenBase("Red Chicken", [Item(Items.red_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase white = ChickenBase("White Chicken", [Item(Items.white_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase blue = ChickenBase("Blue Chicken", [Item(Items.blue_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase yellow = ChickenBase("Yellow Chicken", [Item(Items.yellow_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase green = ChickenBase("Green Chicken", [Item(Items.green_dye,count: 1)], spawning: ChickenSpawning.overworld);
+    ChickenBase black = ChickenBase("Black Chicken", [Item(Items.black_dye,count: 1)], spawning: ChickenSpawning.overworld);
 
-    ChickenBase pink = ChickenBase("Pink Chicken", [Item(ItemType.pink_dye,count: 1)]);
-    ChickenBase purple = ChickenBase("Purple Chicken", [Item(ItemType.purple_dye,count: 1)]);
-    ChickenBase orange = ChickenBase("Orange Chicken", [Item(ItemType.orange_dye,count: 1)]);
-    ChickenBase light_gray = ChickenBase("Light Gray Chicken", [Item(ItemType.light_gray_dye,count: 1)]);
-    ChickenBase cyan = ChickenBase("Cyan Chicken", [Item(ItemType.cyan_dye,count: 1)]);
-    ChickenBase gray = ChickenBase("Gray Chicken", [Item(ItemType.gray_dye,count: 1)]);
-    ChickenBase lime = ChickenBase("Lime Chicken", [Item(ItemType.lime_dye,count: 1)]);
-    ChickenBase light_blue = ChickenBase("Light Blue Chicken", [Item(ItemType.light_blue_dye,count: 1)]);
-    ChickenBase magenta = ChickenBase("Magenta Chicken", [Item(ItemType.magenta_dye,count: 1)]);
-    ChickenBase brown = ChickenBase("Brown Chicken", [Item(ItemType.brown_dye,count: 1)]);
+    ChickenBase pink = ChickenBase("Pink Chicken", [Item(Items.pink_dye,count: 1)]);
+    ChickenBase purple = ChickenBase("Purple Chicken", [Item(Items.purple_dye,count: 1)]);
+    ChickenBase orange = ChickenBase("Orange Chicken", [Item(Items.orange_dye,count: 1)]);
+    ChickenBase light_gray = ChickenBase("Light Gray Chicken", [Item(Items.light_gray_dye,count: 1)]);
+    ChickenBase cyan = ChickenBase("Cyan Chicken", [Item(Items.cyan_dye,count: 1)]);
+    ChickenBase gray = ChickenBase("Gray Chicken", [Item(Items.gray_dye,count: 1)]);
+    ChickenBase lime = ChickenBase("Lime Chicken", [Item(Items.lime_dye,count: 1)]);
+    ChickenBase light_blue = ChickenBase("Light Blue Chicken", [Item(Items.light_blue_dye,count: 1)]);
+    ChickenBase magenta = ChickenBase("Magenta Chicken", [Item(Items.magenta_dye,count: 1)]);
+    ChickenBase brown = ChickenBase("Brown Chicken", [Item(Items.brown_dye,count: 1)]);
 
     //Material Chicken
-    ChickenBase coal = ChickenBase("Coal Chicken", [Item(ItemType.coal,count: 1)]);
-    ChickenBase iron = ChickenBase("Iron Chicken", [Item(ItemType.iron_ingot,count: 1)]);
-    ChickenBase gunpowder = ChickenBase("Gunpowder Chicken", [Item(ItemType.gunpowder,count: 1)]);
-    ChickenBase redstone = ChickenBase("Redstone Chicken", [Item(ItemType.redstone,count: 1)]);
-    ChickenBase glass = ChickenBase("Glass Chicken", [Item(ItemType.glass,count: 1)]);
-    ChickenBase glowstone = ChickenBase("Glowstone Chicken", [Item(ItemType.glowstone,count: 1)]);
-    ChickenBase string = ChickenBase("String Chicken", [Item(ItemType.string,count: 1)]);
-    ChickenBase gold = ChickenBase("Gold Chicken", [Item(ItemType.gold_ingot,count: 1)]);
-    ChickenBase snow = ChickenBase("Snow Chicken", [Item(ItemType.snowball,count: 1)]);
-    ChickenBase water = ChickenBase("Water Chicken", [Item(ItemType.water_bucket,count: 1)]);
-    ChickenBase lava = ChickenBase("Lava Chicken", [Item(ItemType.lava_bucket,count: 1)]);
-    ChickenBase clay = ChickenBase("Clay Chicken", [Item(ItemType.clay_ball,count: 1)]);
-    ChickenBase leather = ChickenBase("Leather Chicken", [Item(ItemType.leather,count: 1)]);
-    ChickenBase wart = ChickenBase("Wart Chicken", [Item(ItemType.nether_wart,count: 1)]);
-    ChickenBase diamond = ChickenBase("Diamond Chicken", [Item(ItemType.diamond,count: 1)]);
-    ChickenBase blaze = ChickenBase("Blaze Chicken", [Item(ItemType.blaze_rod,count: 1)]);
-    ChickenBase slime = ChickenBase("Slime Chicken", [Item(ItemType.slime_ball,count: 1)]);
-    ChickenBase magma = ChickenBase("Magma Chicken", [Item(ItemType.magma_cream,count: 1)]);
-    ChickenBase emerald = ChickenBase("Emerald Chicken", [Item(ItemType.emerald,count: 1)]);
-    ChickenBase ghast = ChickenBase("Ghast Chicken", [Item(ItemType.ghast_tear,count: 1)]);
-    ChickenBase ender = ChickenBase("Ender Chicken", [Item(ItemType.ender_pearl,count: 1)]);
-    ChickenBase xp = ChickenBase("XP Chicken", [Item(ItemType.experience_bottle,count: 1)]);
-    ChickenBase prismarine_shard = ChickenBase("Prismarine Shard Chicken", [Item(ItemType.prismarine_shard,count: 1)]);
-    ChickenBase prismarine = ChickenBase("Prismarine Chicken", [Item(ItemType.prismarine,count: 1)]);
+    ChickenBase coal = ChickenBase("Coal Chicken", [Item(Items.coal,count: 1)]);
+    ChickenBase iron = ChickenBase("Iron Chicken", [Item(Items.iron_ingot,count: 1)]);
+    ChickenBase gunpowder = ChickenBase("Gunpowder Chicken", [Item(Items.gunpowder,count: 1)]);
+    ChickenBase redstone = ChickenBase("Redstone Chicken", [Item(Items.redstone,count: 1)]);
+    ChickenBase glass = ChickenBase("Glass Chicken", [Item(Items.glass,count: 1)]);
+    ChickenBase glowstone = ChickenBase("Glowstone Chicken", [Item(Items.glowstone,count: 1)]);
+    ChickenBase string = ChickenBase("String Chicken", [Item(Items.string,count: 1)]);
+    ChickenBase gold = ChickenBase("Gold Chicken", [Item(Items.gold_ingot,count: 1)]);
+    ChickenBase snow = ChickenBase("Snow Chicken", [Item(Items.snowball,count: 1)]);
+    ChickenBase water = ChickenBase("Water Chicken", [Item(Items.water_bucket,count: 1)]);
+    ChickenBase lava = ChickenBase("Lava Chicken", [Item(Items.lava_bucket,count: 1)]);
+    ChickenBase clay = ChickenBase("Clay Chicken", [Item(Items.clay_ball,count: 1)]);
+    ChickenBase leather = ChickenBase("Leather Chicken", [Item(Items.leather,count: 1)]);
+    ChickenBase wart = ChickenBase("Wart Chicken", [Item(Items.nether_wart,count: 1)]);
+    ChickenBase diamond = ChickenBase("Diamond Chicken", [Item(Items.diamond,count: 1)]);
+    ChickenBase blaze = ChickenBase("Blaze Chicken", [Item(Items.blaze_rod,count: 1)]);
+    ChickenBase slime = ChickenBase("Slime Chicken", [Item(Items.slime_ball,count: 1)]);
+    ChickenBase magma = ChickenBase("Magma Chicken", [Item(Items.magma_cream,count: 1)]);
+    ChickenBase emerald = ChickenBase("Emerald Chicken", [Item(Items.emerald,count: 1)]);
+    ChickenBase ghast = ChickenBase("Ghast Chicken", [Item(Items.ghast_tear,count: 1)]);
+    ChickenBase ender = ChickenBase("Ender Chicken", [Item(Items.ender_pearl,count: 1)]);
+    ChickenBase xp = ChickenBase("XP Chicken", [Item(Items.experience_bottle,count: 1)]);
+    ChickenBase prismarine_shard = ChickenBase("Prismarine Shard Chicken", [Item(Items.prismarine_shard,count: 1)]);
+    ChickenBase prismarine = ChickenBase("Prismarine Chicken", [Item(Items.prismarine,count: 1)]);
 
     //Breeding
 

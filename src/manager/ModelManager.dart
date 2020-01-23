@@ -2,11 +2,11 @@ import 'package:objd/core.dart';
 
 class ModelManager extends Widget{
 
-  Entity select_chicken = Entity.Select(Selector(type: EntityType.chicken,tags: ["better_chicken"],limit: 1,sorting: Sort.nearest,distance: Range(to: 1)));
-  Entity chicken = Entity(type: EntityType.chicken,tags: ["better_chicken"]);
-  Entity select_stand = Entity.Select(Selector(type: EntityType.armor_stand,tags: ["bc_stand"],limit: 1,sorting: Sort.nearest,distance: Range(to: 1)));
-  Entity ground_stand = Entity(type: EntityType.armor_stand,tags: ["bc_stand"],nbt: {"OnGround":1});
-  Entity stand = Entity(type: EntityType.armor_stand,tags: ["bc_stand"]);
+  Entity select_chicken = Entity.Select(Selector(type: Entities.chicken,tags: ["better_chicken"],limit: 1,sorting: Sort.nearest,distance: Range(to: 1)));
+  Entity chicken = Entity(type: Entities.chicken,tags: ["better_chicken"]);
+  Entity select_stand = Entity.Select(Selector(type: Entities.armor_stand,tags: ["bc_stand"],limit: 1,sorting: Sort.nearest,distance: Range(to: 1)));
+  Entity ground_stand = Entity(type: Entities.armor_stand,tags: ["bc_stand"],nbt: {"OnGround":1});
+  Entity stand = Entity(type: Entities.armor_stand,tags: ["bc_stand"]);
 
   @override
   generate(Context context) {

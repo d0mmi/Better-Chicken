@@ -7,7 +7,7 @@ class Tool extends Widget{
   Item tool;
   List<Item> crafting;
   List<Widget> onUse;
-  static Entity chicken = Entity(type: EntityType.chicken, tags: ["better_chicken"],distance: Range(to: 0.2));
+  static Entity chicken = Entity(type: Entities.chicken, tags: ["better_chicken"]);
   static List<Tool> tools;
 
   Tool(this.name,this.model,this.crafting,this.onUse){
@@ -16,26 +16,29 @@ class Tool extends Widget{
     }else{
       tools.add(this);
     }
-    tool = Item(ItemType.carrot_on_a_stick,model: model,name: TextComponent(name));
+    tool = Item(Items.carrot_on_a_stick,model: model,count: 1);
   }
 
   @override
   generate(Context context) {
-    var ray = Raycast(Entity.Selected(),max: 3,step: 0.1,ray: (stop, hit) => If(Condition.entity(chicken),Then:[hit()]),onhit: onUse);
-    return ClickEvent(selectedItem: tool,onClick: ray);
+    var ray = Raycast(Entity.Selected(),max: 3,step: 0.1,ray: (stop, hit) => If(Condition.entity(chicken.copyWith(distance: Range(to: 0.2))),then:[hit()]),onhit: onUse);
+    return File.execute("/tool/"+name.toLowerCase().replaceAll(" ", "_"),child: For.of([ClickEvent(selectedItem: tool,onClick: ray),Execute.asat(chicken,children: [getCrafting()])]));
   }
 
   Widget getCrafting(){
     List<Condition> conditions = [];
     List<Widget> then = [];
     for (var item in crafting) {
-      var item_nbt = {"Item":item.getMap()};
-      var entity = Entity(type: EntityType.item,distance: Range(to: 1),nbt: item_nbt);
+      var item_nbt = {"Item":{
+        "id":item.type.toString(),
+        "Count":gsonDecode(item.count.toString()+"b")
+      }};
+      var entity = Entity(type: Entities.item,distance: Range(to: 1),nbt: item_nbt);
       conditions.add(Condition.entity(entity));
       then.add(Kill(entity));
     }
-    then.add(Summon(EntityType.item,nbt: {"Item":tool.getMap() }));
-    return If(Condition.and(conditions),Then: then);
+    then.add(Summon(Entities.item,nbt: {"Item":Item(Items.carrot_on_a_stick,model: model,name: TextComponent(name),count: 1).getMap() }));
+    return If(Condition.and(conditions),then: then);
   }
 
 }

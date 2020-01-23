@@ -1,4 +1,5 @@
 name: "better_chicken"
 dependencies:  
    objd:
+      git: git://github.com/Stevertus/objD.git
    path:

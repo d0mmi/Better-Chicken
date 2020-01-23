@@ -1,4 +1,6 @@
+import 'package:objd/basic/types/items.dart';
 import 'package:objd/core.dart';
+
 import '../manager/DropManager.dart';
 import '../utils/json_writer.dart';
 import 'breeding/BreedingRecipe.dart';
@@ -34,9 +36,9 @@ class ChickenBase extends Widget{
       chickens.add(this);
     }
     this.texture = name.replaceAll(" Chicken", "").replaceAll(" ", "_").toLowerCase();
-    this.drops.add(Item(ItemType.feather,count: 1));
+    this.drops.add(Item(Items.feather,count: 1));
     _tags = [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"];
-    _entity = Entity(type: EntityType.chicken, tags: _tags);
+    _entity = Entity(type: Entities.chicken, tags: _tags);
     model = chickensModelCounter;
     chickensModelCounter++;
     BreedingRecipe.self(this);
@@ -53,24 +55,24 @@ class ChickenBase extends Widget{
 
   Summon getSummon({bool baby = false}){
     List<Summon> passengers = [
-      Summon(EntityType.armor_stand,invulnerable: true,tags: ["bc_stand"], nbt: {"Invisible":1,"NoBasePlate":1,"Small":1,"ArmorItems":[{},{},{},Item(ItemType.cookie,count: 1,model: model).getMap()]})
+      Summon(Entities.armor_stand,invulnerable: true,tags: ["bc_stand"], nbt: {"Invisible":1,"NoBasePlate":1,"Small":1,"ArmorItems":[{},{},{},Item(Items.cookie,count: 1,model: model).getMap()]})
     ];
-    return (baby)? Summon(EntityType.chicken,tags: _tags,name: TextComponent(name),nbt: {"Age":-6000},passengers: passengers) : Summon(EntityType.chicken,tags: _tags,name: TextComponent(name),passengers: passengers);
+    return (baby)? Summon(Entities.chicken,tags: _tags,name: TextComponent(name),nbt: {"Age":-6000},passengers: passengers) : Summon(Entities.chicken,tags: _tags,name: TextComponent(name),passengers: passengers);
     }
 
   Widget getDrops(){
     List<Widget> summondrops = [RandomScore(Entity.Selected(),to: drops.length-1,objective: drop_score)];
     var i = 0;
     for (Item item in drops) {
-      summondrops.add(If(Condition.score(Score(Entity.Selected(), drop_score).matches(i)),Then: [
-        Summon(EntityType.item,nbt: {
+      summondrops.add(If(Condition.score(Score(Entity.Selected(), drop_score).matches(i)),then: [
+        Summon(Entities.item,nbt: {
         "Item":item.getMap()
       })
       ]));
       i++;
     }
     summondrops.add(Data.modify(Entity.Selected(),path: DropManager.property,modify: DataModify.set(dropCooldown)));
-    return If(Condition.entity(Entity(type: EntityType.chicken, tags: [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"],selector: "s")),Then: summondrops);
+    return If(Condition.entity(Entity(type: Entities.chicken, tags: [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"],selector: "s")),then: summondrops);
   }
 
   createModelJson(){

@@ -11,7 +11,7 @@ class NaturalSpawningManager extends Widget{
 
 
     List<String> tags = ["!"+tag,"!"+tag_disabled];
-    Entity entity = Entity(type: EntityType.chicken,tags: tags,distance: Range(from: 0));
+    Entity entity = Entity(type: Entities.chicken,tags: tags,distance: Range(from: 0));
     List<ChickenBase> overworld = [];
     List<ChickenBase> nether = [];
 
@@ -27,7 +27,7 @@ class NaturalSpawningManager extends Widget{
 
     for (var i = 0; i < overworld.length; i++) {
       var chicken = overworld[i];
-      overworld_cmds.add(If(Condition.score(Score(Entity.Selected(), "bc_spawn").matches(i)),Then: [
+      overworld_cmds.add(If(Condition.score(Score(Entity.Selected(), "bc_spawn").matches(i)),then: [
         Command("/function better_chicken:chickens/summon_"+chicken.name.toLowerCase().replaceAll(" ", "_")),
         Tp(Entity.Selected(),to: Location.rel(y: -1000))
       ]));
@@ -37,7 +37,7 @@ class NaturalSpawningManager extends Widget{
 
     for (var i = 0; i < nether.length; i++) {
       var chicken = nether[i];
-      nether_cmds.add(If(Condition.score(Score(Entity.Selected(), "bc_spawn").matches(i)),Then: [
+      nether_cmds.add(If(Condition.score(Score(Entity.Selected(), "bc_spawn").matches(i)),then: [
         Command("/function better_chicken:chickens/summon_"+chicken.name.toLowerCase().replaceAll(" ", "_")),
         Command("/tp @s ~ -5 ~")
       ]));
