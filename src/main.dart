@@ -64,30 +64,30 @@ class MainWidget extends Widget {
     ChickenBase brown = ChickenBase("Brown Chicken", [Item(ItemType.brown_dye,count: 1)]);
 
     //Material Chicken
-    ChickenBase coal = ChickenBase("Coal Chicken", [Item(ItemType.coal,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase iron = ChickenBase("Iron Chicken", [Item(ItemType.iron_ingot,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase gunpowder = ChickenBase("Gunpowder Chicken", [Item(ItemType.gunpowder,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase redstone = ChickenBase("Redstone Chicken", [Item(ItemType.redstone,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase glass = ChickenBase("Glass Chicken", [Item(ItemType.glass,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase glowstone = ChickenBase("Glowstone Chicken", [Item(ItemType.glowstone,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase string = ChickenBase("String Chicken", [Item(ItemType.string,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase gold = ChickenBase("Gold Chicken", [Item(ItemType.gold_ingot,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase snow = ChickenBase("Snow Chicken", [Item(ItemType.snowball,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase water = ChickenBase("Water Chicken", [Item(ItemType.water_bucket,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase lava = ChickenBase("Lava Chicken", [Item(ItemType.lava_bucket,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase clay = ChickenBase("Clay Chicken", [Item(ItemType.clay_ball,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase leather = ChickenBase("Leather Chicken", [Item(ItemType.leather,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase wart = ChickenBase("Wart Chicken", [Item(ItemType.nether_wart,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase diamond = ChickenBase("Diamond Chicken", [Item(ItemType.diamond,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase blaze = ChickenBase("Blaze Chicken", [Item(ItemType.blaze_rod,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase slime = ChickenBase("Slime Chicken", [Item(ItemType.slime_ball,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase magma = ChickenBase("Magma Chicken", [Item(ItemType.magma_cream,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase emerald = ChickenBase("Emerald Chicken", [Item(ItemType.emerald,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase ghast = ChickenBase("Ghast Chicken", [Item(ItemType.ghast_tear,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase ender = ChickenBase("Ender Chicken", [Item(ItemType.ender_pearl,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase xp = ChickenBase("XP Chicken", [Item(ItemType.experience_bottle,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase prismarine_shard = ChickenBase("Prismarine Shard Chicken", [Item(ItemType.prismarine_shard,count: 1),Item(ItemType.feather,count: 1)]);
-    ChickenBase prismarine = ChickenBase("Prismarine Chicken", [Item(ItemType.prismarine,count: 1),Item(ItemType.feather,count: 1)]);
+    ChickenBase coal = ChickenBase("Coal Chicken", [Item(ItemType.coal,count: 1)]);
+    ChickenBase iron = ChickenBase("Iron Chicken", [Item(ItemType.iron_ingot,count: 1)]);
+    ChickenBase gunpowder = ChickenBase("Gunpowder Chicken", [Item(ItemType.gunpowder,count: 1)]);
+    ChickenBase redstone = ChickenBase("Redstone Chicken", [Item(ItemType.redstone,count: 1)]);
+    ChickenBase glass = ChickenBase("Glass Chicken", [Item(ItemType.glass,count: 1)]);
+    ChickenBase glowstone = ChickenBase("Glowstone Chicken", [Item(ItemType.glowstone,count: 1)]);
+    ChickenBase string = ChickenBase("String Chicken", [Item(ItemType.string,count: 1)]);
+    ChickenBase gold = ChickenBase("Gold Chicken", [Item(ItemType.gold_ingot,count: 1)]);
+    ChickenBase snow = ChickenBase("Snow Chicken", [Item(ItemType.snowball,count: 1)]);
+    ChickenBase water = ChickenBase("Water Chicken", [Item(ItemType.water_bucket,count: 1)]);
+    ChickenBase lava = ChickenBase("Lava Chicken", [Item(ItemType.lava_bucket,count: 1)]);
+    ChickenBase clay = ChickenBase("Clay Chicken", [Item(ItemType.clay_ball,count: 1)]);
+    ChickenBase leather = ChickenBase("Leather Chicken", [Item(ItemType.leather,count: 1)]);
+    ChickenBase wart = ChickenBase("Wart Chicken", [Item(ItemType.nether_wart,count: 1)]);
+    ChickenBase diamond = ChickenBase("Diamond Chicken", [Item(ItemType.diamond,count: 1)]);
+    ChickenBase blaze = ChickenBase("Blaze Chicken", [Item(ItemType.blaze_rod,count: 1)]);
+    ChickenBase slime = ChickenBase("Slime Chicken", [Item(ItemType.slime_ball,count: 1)]);
+    ChickenBase magma = ChickenBase("Magma Chicken", [Item(ItemType.magma_cream,count: 1)]);
+    ChickenBase emerald = ChickenBase("Emerald Chicken", [Item(ItemType.emerald,count: 1)]);
+    ChickenBase ghast = ChickenBase("Ghast Chicken", [Item(ItemType.ghast_tear,count: 1)]);
+    ChickenBase ender = ChickenBase("Ender Chicken", [Item(ItemType.ender_pearl,count: 1)]);
+    ChickenBase xp = ChickenBase("XP Chicken", [Item(ItemType.experience_bottle,count: 1)]);
+    ChickenBase prismarine_shard = ChickenBase("Prismarine Shard Chicken", [Item(ItemType.prismarine_shard,count: 1)]);
+    ChickenBase prismarine = ChickenBase("Prismarine Chicken", [Item(ItemType.prismarine,count: 1)]);
 
     //Breeding
 
