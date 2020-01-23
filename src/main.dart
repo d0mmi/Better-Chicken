@@ -8,6 +8,7 @@ import 'chickens/breeding/BreedingRecipe.dart';
 import 'manager/AdvancementManager.dart';
 import 'manager/ModelManager.dart';
 import 'manager/NaturalSpawningManager.dart';
+import 'tools/analyse_tool.dart';
 import 'utils/builder.dart';
 
 void main(){
@@ -138,6 +139,7 @@ class MainWidget extends Widget {
       summonChicken.add(File("chickens/summon_"+chicken.name.toLowerCase().replaceAll(" ", "_"),child: chicken.getSummon()))
     });
 
+
     return Pack(
 		name: "better_chicken",
 		main: File(
@@ -147,7 +149,8 @@ class MainWidget extends Widget {
         DropManager(),
         NaturalSpawningManager(),
         ModelManager(),
-        AdvancementManager()
+        AdvancementManager(),
+        AnalyseTool()
       ])
 		),
     load: File(

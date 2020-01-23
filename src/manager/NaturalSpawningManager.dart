@@ -39,7 +39,7 @@ class NaturalSpawningManager extends Widget{
       var chicken = nether[i];
       nether_cmds.add(If(Condition.score(Score(Entity.Selected(), "bc_spawn").matches(i)),Then: [
         Command("/function better_chicken:chickens/summon_"+chicken.name.toLowerCase().replaceAll(" ", "_")),
-        Tp(Entity.Selected(),to: Location.rel(y: -1000))
+        Command("/tp @s ~ -5 ~")
       ]));
     }
 
