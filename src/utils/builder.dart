@@ -5,6 +5,7 @@ import 'package:objd/basic/types/item.dart';
 
 import '../chickens/ChickenBase.dart';
 import '../chickens/breeding/BreedingRecipe.dart';
+import '../tools/tool.dart';
 import 'advancement/advancement_builder.dart';
 import 'advancement/custom_advancement.dart';
 import 'advancement/root_advancement.dart';
@@ -47,6 +48,30 @@ class BuilderHelper{
           advancements.add(CustomAdvancement(chicken.name,"Breed " + recipe.chicken1.name + " with " + recipe.chicken2.name,chicken.drops[0].type,criteria,parent: recipe.chicken1.name));
         }
       }
+
+      for (var tool in Tool.tools) {
+        var criteria = {
+          "bc_" + tool.name.toLowerCase().replaceAll(" ", "_") : {
+            "trigger": "minecraft:inventory_changed",
+            "conditions": {
+                "items": [
+                    {
+                        "item": tool.tool.type.toString(),
+                        "nbt": tool.tool.tag.toString()
+                    }
+                ]
+            }
+          }
+        };
+        var description = "Throw at Chicken:";
+
+        for (var item in tool.crafting) {
+          description += " " + item.count.toString() + "x " + item.type.toString().replaceAll("minecraft:", "").replaceAll("_", " ");
+        }
+
+        advancements.add(CustomAdvancement(tool.name, description, tool.tool.type, criteria,icon_nbt: tool.tool.tag));
+      }
+
       var root = RootAdvancement("Better Chicken","Install the Better Chicken Datapack",Items.feather,{
           "bc_install": {
             "trigger": "minecraft:tick"

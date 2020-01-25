@@ -70,8 +70,6 @@ Soul sand, Nether Quartz
 
 # Planned Features
 
-- Natural spawning of Base-Chicken 
 - Chicken Stats
 - Auto Generated:
     - Docu
-    - Advancements

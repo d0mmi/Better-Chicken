@@ -7,10 +7,13 @@ class AnalyseTool extends Tool {
     Item(Items.book,count: 1),
     Item(Items.diamond,count: 1)
   ], [
-    Tellraw(Entity.Selected(),show: [TextComponent("-------------------")]),
-    For.of(getChickenInfo()),
-    Tellraw(Entity.Selected(),show: [TextComponent("Chickendrop Timer: "),TextComponent.score(Score(Tool.chicken,"chickendrop"))]),
-    Tellraw(Entity.Selected(),show: [TextComponent("-------------------")]),
+    If(Condition.entity(Tool.chicken),then: [
+      Tellraw(Entity.Selected(),show: [TextComponent("-------------------")]),
+      For.of(getChickenInfo()),
+      Tellraw(Entity.Selected(),show: [TextComponent("Chickendrop Timer: "),TextComponent.score(Score(Tool.chicken,"chickendrop"))]),
+      Tellraw(Entity.Selected(),show: [TextComponent("-------------------")]),
+    ]),
+    
   ]);
 
   static List<Widget> getChickenInfo(){
@@ -20,7 +23,7 @@ class AnalyseTool extends Tool {
       for (var item in chicken.drops) {
         drops.add(Tellraw(Entity.Selected(),show: [TextComponent("  - "+item.count.toString()+"x "+formatItems(item.type))]));
       }
-      cmds.add(If(Condition.entity(chicken.getEntity()),then: [
+      cmds.add(If(Condition.entity(chicken.getEntity().copyWith(distance: Range(to: 1))),then: [
         Tellraw(Entity.Selected(),show: [TextComponent("Chicken Type: " + chicken.name)]),
         Tellraw(Entity.Selected(),show: [TextComponent("Drop Cooldown: " + formatCooldown(chicken.dropCooldown))]),
         Tellraw(Entity.Selected(),show: [TextComponent("Chicken Drops:")]),

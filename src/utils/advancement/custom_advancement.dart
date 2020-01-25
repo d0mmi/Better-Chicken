@@ -20,12 +20,12 @@ class CustomAdvancement{
   String name;
   String desc;
   dynamic icon;
-  Map<String,dynamic> icon_nbt;
+  Map icon_nbt;
   AdvancementFrame frame;
   bool show_toast;
   bool announce_to_chat;
   bool hidden;
-  Map<dynamic,dynamic> criteria;
+  Map criteria;
   String parent;
 
   CustomAdvancement(this.name, this.desc,this.icon,this.criteria,{this.icon_nbt = null, this.frame = AdvancementFrame.task, this.show_toast = true, this.announce_to_chat = true, this.hidden = false, this.parent = null}){
@@ -43,6 +43,7 @@ class CustomAdvancement{
         },
         "icon": {
             "item": icon.toString(),
+            "nbt": icon_nbt.toString()
         },
         "frame": frame.toString(),
         "show_toast": show_toast,
@@ -51,9 +52,7 @@ class CustomAdvancement{
     },
     "criteria": criteria
     };
-    if(icon_nbt != null){
-      json["icon"]["nbt"] = icon_nbt;
-    }
+    if(icon_nbt == null )(json["display"]["icon"] as Map).remove("nbt");
     if(parent != null){
       json["parent"] = namespace + ":" + parent.toLowerCase().replaceAll(" ", "_");
     }

@@ -55,7 +55,7 @@ class ChickenBase extends Widget{
 
   Summon getSummon({bool baby = false}){
     List<Summon> passengers = [
-      Summon(Entities.armor_stand,invulnerable: true,tags: ["bc_stand"], nbt: {"Invisible":1,"NoBasePlate":1,"Small":1,"ArmorItems":[{},{},{},Item(Items.cookie,count: 1,model: model).getMap()]})
+      //Summon(Entities.armor_stand,invulnerable: true,tags: ["bc_stand"], nbt: {"Invisible":1,"NoBasePlate":1,"Small":1,"ArmorItems":[{},{},{},Item(Items.cookie,count: 1,model: model).getMap()]})
     ];
     return (baby)? Summon(Entities.chicken,tags: _tags,name: TextComponent(name),nbt: {"Age":-6000},passengers: passengers) : Summon(Entities.chicken,tags: _tags,name: TextComponent(name),passengers: passengers);
     }
