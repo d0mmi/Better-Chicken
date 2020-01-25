@@ -35,7 +35,7 @@ class Tool extends Widget{
         "id":item.type.toString(),
         "Count":gsonDecode(item.count.toString()+"b")
       }};
-      var entity = Entity(type: Entities.item,distance: Range(to: 0.2),nbt: item_nbt);
+      var entity = Entity(type: Entities.item,distance: Range(to: 1),nbt: item_nbt);
       conditions.add(Condition.entity(entity));
       then.add(Kill(entity));
     }
