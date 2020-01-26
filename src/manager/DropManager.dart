@@ -6,7 +6,6 @@ import '../chickens/ChickenBase.dart';
 class DropManager extends Widget{
 
   static Entity chicken = Entity(type: Entities.chicken,tags: ["better_chicken"]);
-  static String dropscore = "chickendrop";
   static String property = "EggLayTime";
 
   @override
@@ -19,10 +18,10 @@ class DropManager extends Widget{
     }
 
     return File.execute("drop_manager",child: For.of([
-      Scoreboard(dropscore),
+      Scoreboard(ChickenBase.drop_score),
       Execute.asat(chicken,children: [
-        Command("execute as @s store result score @s "+ dropscore + " run data get entity @s " + property),
-        If(Condition.predicate(Predicate("chickendrop",contents: Scores({"chickendrop":Range(from: 100, to: 600)}))),then: [
+        Command("execute as @s store result score @s "+ ChickenBase.drop_score + " run data get entity @s " + property),
+        If(Condition.predicate(Predicate("better_chicken:chickendrop",contents: Scores({ChickenBase.drop_score:Range(from: 10, to: 30)}))),then: [
           For.of(drops)
         ])
       ])

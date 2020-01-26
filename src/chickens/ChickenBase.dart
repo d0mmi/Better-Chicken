@@ -37,6 +37,7 @@ class ChickenBase extends Widget{
     }
     this.texture = name.replaceAll(" Chicken", "").replaceAll(" ", "_").toLowerCase();
     this.drops.add(Item(Items.feather,count: 1));
+    this.drops.add(Item(Items.egg,count: 1));
     _tags = [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"];
     _entity = Entity(type: Entities.chicken, tags: _tags);
     model = chickensModelCounter;
@@ -54,11 +55,12 @@ class ChickenBase extends Widget{
   }
 
   Summon getSummon({bool baby = false}){
-    List<Summon> passengers = [
-      //Summon(Entities.armor_stand,invulnerable: true,tags: ["bc_stand"], nbt: {"Invisible":1,"NoBasePlate":1,"Small":1,"ArmorItems":[{},{},{},Item(Items.cookie,count: 1,model: model).getMap()]})
-    ];
-    return (baby)? Summon(Entities.chicken,tags: _tags,name: TextComponent(name),nbt: {"Age":-6000},passengers: passengers) : Summon(Entities.chicken,tags: _tags,name: TextComponent(name),passengers: passengers);
+    return (baby)? Summon(Entities.chicken,tags: _tags,nbt: {"Age":-6000}) : Summon(Entities.chicken,tags: _tags);
     }
+
+  Widget getModel(){
+    return If(Condition.entity(Entity(type: Entities.chicken, tags: [name.toLowerCase().replaceAll(" ", "_"),"better_chicken"],selector: "s")),then: [Summon(Entities.armor_stand,invulnerable: true,tags: ["bc_stand","bc_init"], nbt: {"Invisible":1,"Invulnerable":1,"NoBasePlate":1,"NoGravity":1,"Small":1,"Marker":1,"ArmorItems":[{},{},{},Item(Items.cookie,count: 1,model: model).getMap()]})]);
+  }
 
   Widget getDrops(){
     List<Widget> summondrops = [RandomScore(Entity.Selected(),to: drops.length-1,objective: drop_score)];

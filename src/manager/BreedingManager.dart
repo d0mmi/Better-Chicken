@@ -24,7 +24,7 @@ class BreedingManager extends Widget{
       Execute.asat(chicken,children: [
         If(Condition.tag(Tag(lovescore,entity: Entity.Selected(),value: true)),then: onLove),
         Command("execute as @s store result score @s "+ lovescore + " run data get entity @s " + property),
-        If(Condition.predicate(Predicate("inlove",contents: Scores({"inlove":Range(from: 100, to: 600)}))),then: [
+        If(Condition.predicate(Predicate("better_chicken:inlove",contents: Scores({"inlove":Range(from: 100, to: 600)}))),then: [
           Tag(lovescore,entity: Entity.Selected(),value: true)
         ])
       ])

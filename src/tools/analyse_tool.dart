@@ -11,7 +11,7 @@ class AnalyseTool extends Tool {
     If(Condition.entity(Tool.chicken),then: [
       Tellraw(Entity.Selected(),show: [TextComponent("[--------------------------------]")]),
       For.of(getChickenInfo()),
-      Tellraw(Entity.Selected(),show: [TextComponent("  Chickendrop Timer: "),TextComponent.score(Score(Tool.chicken,"chickendrop"))]),
+      Tellraw(Entity.Selected(),show: [TextComponent("  Chickendrop Timer: "),TextComponent.score(Score(Tool.chicken,ChickenBase.drop_score))]),
       Tellraw(Entity.Selected(),show: [TextComponent("[--------------------------------]")]),
     ]),
     
